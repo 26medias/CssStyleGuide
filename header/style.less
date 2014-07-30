@@ -1,0 +1,108 @@
+body, html {
+	padding:	0;
+	margin:		0;
+}
+
+/* Import the font */
+@import "http://fonts.googleapis.com/css?family=Oswald";
+
+/*
+.pagevamp-navbar is the scope of the menu.
+If it was named simply .navbar, then the chance to have another style
+having the same name is high, creating interferences.
+*/
+.pagevamp-navbar {
+	
+	/* Define the colors and main styles in variables */
+	@bgColor:		#272C43;
+	@textColor:		#ffffff;
+	@fontSize:		14px;
+	@height:		60px;
+	
+	/* Apply the font to all the sub elements */
+	* {
+		font-family: 'Oswald', sans-serif;
+	}
+	
+	background-color:	@bgColor;
+	padding:			0 20px;
+	height:				60px;
+	
+	/* Notice the "& >", which means that even is there are other elements on the page using class="logo", as long as their direct parent is not ".pagevamp-navbar", that style won't apply. */
+	& > .logo {
+		background-position:	left center;
+		background-repeat:		no-repeat;
+		background-image:		url('images/logo.png');
+		width:					30px;
+		height:					100%;
+		float:					left;
+	}
+	& > ul.menu {
+		float:				right;
+		list-style:			none;
+		margin:				0;
+		padding:			0;
+		height:				@height;
+		
+		& > li {
+			display:		table-cell;
+			height:			@height;
+			padding:		0 8px;
+			
+			& > a {
+				text-decoration:	none;
+				line-height:	@height;
+				height:			@height;
+				display:		block;
+				color:			fadeout(@textColor, 60%);	/* We use LessCss functions to make it easier to modify colors, alphas, grandients... */
+				font-size:		@fontSize;
+				
+				&.active {
+					color:		@textColor;
+				}
+				
+				/* All icons have the same basic styles including background-position and background-repeat, so we group it that way... */
+				&.icon {
+					background-position:	left center;
+					background-repeat:		no-repeat;
+					padding-left:			18px;
+				}
+				
+				/* ...then we define each icon in a way that would make fast and easy for any developer to add more icon choices later.  */
+				&.icon-check {
+					background-image:			url('images/check_inactive.png');
+					
+					/* Each icon has 2 states, one active and one non-active. We're grouping the 2 images in the same code block, to make it easier to read and update. */
+					&.active {
+						background-image:		url('images/check.png');
+					}
+				}
+				&.icon-01 {
+					background-image:			url('images/01_inactive.png');
+					&.active {
+						background-image:		url('images/01.png');
+					}
+				}
+				&.icon-02 {
+					background-image:			url('images/02_inactive.png');
+					&.active {
+						background-image:		url('images/02.png');
+					}
+				}
+				&.icon-03 {
+					background-image:			url('images/03_inactive.png');
+					&.active {
+						background-image:		url('images/03.png');
+					}
+				}
+				&.icon-04 {
+					background-image:			url('images/04_inactive.png');
+					&.active {
+						background-image:		url('images/04.png');
+					}
+				}
+			}
+		}
+		
+	}
+}

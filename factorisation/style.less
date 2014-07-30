@@ -1,0 +1,51 @@
+.border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
+	-webkit-border-radius: @topleft @topright @bottomright @bottomleft;
+	-moz-border-radius: @topleft @topright @bottomright @bottomleft;
+	border-radius: @topleft @topright @bottomright @bottomleft;
+}
+.box-shadow (@x: 0px, @y: 3px, @blur: 5px, @color: #000000) {
+	-webkit-box-shadow: @x @y @blur @color;
+	-moz-box-shadow: @x @y @blur @color;
+	box-shadow: @x @y @blur @color;
+}
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+	background-color: @start;
+	background-image: -webkit-linear-gradient(@origin, @start, @stop);
+	background-image: -moz-linear-gradient(@origin, @start, @stop);
+	background-image: -o-linear-gradient(@origin, @start, @stop);
+	background-image: -ms-linear-gradient(@origin, @start, @stop);
+	background-image: linear-gradient(@origin, @start, @stop);
+}
+
+.demo01 {
+	width:		400px;
+	height:		200px;
+	display:	inline-block;
+	margin:		20px;
+	border:		1px solid #000000;
+	.border-radius-custom(0, 0, 20px, 20px);
+	.gradient(top, #272C43, #556091);
+	.box-shadow(2px, 2px, 5px, #000000);
+}
+
+.demo02 {
+	width:		200px;
+	height:		200px;
+	display:	inline-block;
+	margin:		20px;
+	border:		1px solid #000000;
+	.border-radius-custom(0, 20px, 20px, 0);
+	.gradient(left, #ffcc00, #B20000);
+	.box-shadow(0, 0, 10px, #ff0000);
+}
+
+.demo03 {
+	width:		100px;
+	height:		100px;
+	display:	inline-block;
+	margin:		20px;
+	border:		1px solid #ffffff;
+	.border-radius-custom();
+	.gradient(top, #919CA4, #73818A);
+	.box-shadow(0, 0, 4px, rgba(0,0,0,0.5));
+}
